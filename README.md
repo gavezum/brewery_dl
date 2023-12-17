@@ -23,12 +23,16 @@ The folders are organized in the following way:
   
 - **src**: folder containing all the necessary code to run the process. if run manually put on the first folder, if run airlfow this folder needs to be move to the **airflow/dags** folder.
     - **utils**: *Folder with auxiliary functions*
-    - **read_raw_data**: Script to run the **Bronze layer**
-    - **transform_data**: Script to run the **Silver layer**
-    - **group_data**: Script to run the **Gold layer**
+        - **azure_storage.py**: *Functions to save/read files from the blob storage*
+        - **request_api.py**: *Function to read the data from an api*
+        - **brewery_type_group.py**: *Functions to group the information by state and country*
+
+    - **read_raw_data.py**: Script to run the **Bronze layer**
+    - **transform_data.py**: Script to run the **Silver layer**
+    - **group_data.py**: Script to run the **Gold layer**
 
 - **airflow_run**: Notebook containg the necessary commands to run the airflow
 
-- **requirements.txt**: All the necessary packages to run the codes on the Databricks env.
+- **requirements.txt**: All the necessary packages to run the codes on the Databricks env. (Since the databricks has Pyspark as native, this library is not on this file)
 
-- **run_process**: Python script to run the process manually
+- **run_process.py**: Python script to run the process manually
