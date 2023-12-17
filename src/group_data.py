@@ -1,12 +1,13 @@
 import logging
 import pandas as pd
-from utils.brewery_type_group import  state_group, country_group
-from config import (ACCESS_TOKEN, 
-                    ACCESS_KEY,
-                    DATE_PIPELINE, 
-                    SILVER_CONTAINER,
-                    GOLD_CONTAINER,
-                    ACCOUNT_NAME)
+from src.utils.brewery_type_group import  state_group, country_group
+from src.config import (ACCESS_TOKEN, 
+                        ACCESS_KEY,
+                        DATE_PIPELINE, 
+                        SILVER_CONTAINER,
+                        GOLD_CONTAINER,
+                        ACCOUNT_NAME,
+                        DATE_PIPELINE)
 
 def group_data():
     logger = logging.getLogger("grouping data")
@@ -16,13 +17,17 @@ def group_data():
     countries = state_group(ACCESS_TOKEN, 
                                 SILVER_CONTAINER, 
                                 ACCOUNT_NAME, 
-                                GOLD_CONTAINER)
+                                ACCESS_KEY,
+                                GOLD_CONTAINER,
+                                DATE_PIPELINE)
 
     logger.info("Grouping brewery type by country.")
     country_group(ACCESS_TOKEN, 
                 SILVER_CONTAINER, 
                 ACCOUNT_NAME, 
                 GOLD_CONTAINER,
-                countries)
+                ACCESS_KEY,
+                countries,
+                DATE_PIPELINE)
 
     logger.info("End of the pipeline.")

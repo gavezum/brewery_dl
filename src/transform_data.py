@@ -4,14 +4,17 @@ import pandas as pd
 import io 
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import col
-from utils.azure_storage import read_json, upload_data
-from config import (ACCESS_TOKEN, 
-                    DATE_PIPELINE, 
-                    BRONZE_CONTAINER,
-                    SILVER_CONTAINER)
+from src.utils.azure_storage import read_json, upload_data, save_parquet
+from src.config import (ACCESS_TOKEN, 
+                        DATE_PIPELINE, 
+                        BRONZE_CONTAINER,
+                        SILVER_CONTAINER)
 
 
 def save_tabular_df():
+    logger = logging.getLogger("Transforming data into tabular")
+    logging.Formatter("%(asctime)s:%(levelname)s: %(message)s")
+
     logger.info("Transforming the json into spark df.")
     json_data = read_json(ACCESS_TOKEN, BRONZE_CONTAINER, f'raw_data_{DATE_PIPELINE}.json')
     spark = SparkSession.builder.appName("transform_dataframe").getOrCreate()
@@ -33,6 +36,6 @@ def save_tabular_df():
             df_filter_2 = df_filter.filter(col('state') == state)
             df_pandas = df_filter_2.toPandas()
             state = state.replace(' ','_')
-            save_parquet(df, ACCESS_TOKEN, SILVER_CONTAINER, f'{DATE_PIPELINE}/{country}/{state}.parquet')
+            save_parquet(df_pandas, ACCESS_TOKEN, SILVER_CONTAINER, f'{DATE_PIPELINE}/{country}/{state}.parquet')
 
     logger.info("Finishing the transformed")

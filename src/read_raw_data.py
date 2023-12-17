@@ -1,8 +1,8 @@
 import logging
 import datetime
-from utils.request_api import request_api
-from utils.azure_storage import upload_data
-from config import ACCESS_TOKEN, URL_API, BRONZE_CONTAINER, DATE_PIPELINE
+from src.utils.request_api import request_api
+from src.utils.azure_storage import upload_data
+from src.config import ACCESS_TOKEN, URL_API, BRONZE_CONTAINER, DATE_PIPELINE
 import json
 
 def read_raw_df():

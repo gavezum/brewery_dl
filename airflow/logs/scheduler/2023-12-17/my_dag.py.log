@@ -1,0 +1,35 @@
+[2023-12-17T12:59:57.964+0000] {processor.py:157} INFO - Started process (PID=21574) to work on /Workspace/Repos/avezumgabriel@gmail.com/brewery_dl/airflow/dags/my_dag.py
+[2023-12-17T12:59:57.965+0000] {processor.py:829} INFO - Processing file /Workspace/Repos/avezumgabriel@gmail.com/brewery_dl/airflow/dags/my_dag.py for tasks to queue
+[2023-12-17T12:59:57.968+0000] {logging_mixin.py:154} INFO - [2023-12-17T12:59:57.967+0000] {dagbag.py:536} INFO - Filling up the DagBag from /Workspace/Repos/avezumgabriel@gmail.com/brewery_dl/airflow/dags/my_dag.py
+[2023-12-17T13:00:00.193+0000] {logging_mixin.py:154} INFO - [2023-12-17T13:00:00.193+0000] {my_dag.py:13} INFO - Defining args
+[2023-12-17T13:00:00.194+0000] {logging_mixin.py:154} INFO - [2023-12-17T13:00:00.194+0000] {my_dag.py:22} INFO - Defining DAG
+[2023-12-17T13:00:00.197+0000] {logging_mixin.py:154} INFO - [2023-12-17T13:00:00.196+0000] {my_dag.py:25} INFO - Creating PythonOperator to read the raw data (Bronze Container)
+[2023-12-17T13:00:00.197+0000] {logging_mixin.py:154} INFO - [2023-12-17T13:00:00.197+0000] {my_dag.py:33} INFO - Creating PythonOperator to transform and save the raw data (Silver Container)
+[2023-12-17T13:00:00.198+0000] {logging_mixin.py:154} INFO - [2023-12-17T13:00:00.198+0000] {my_dag.py:40} INFO - Creating PythonOperator to group by brewery type (Gold Container)
+[2023-12-17T13:00:00.199+0000] {logging_mixin.py:154} INFO - [2023-12-17T13:00:00.199+0000] {my_dag.py:47} INFO - Creating DAG tasks
+[2023-12-17T13:00:00.203+0000] {logging_mixin.py:154} INFO - [2023-12-17T13:00:00.203+0000] {executor_loader.py:117} INFO - Loaded executor: SequentialExecutor
+[2023-12-17T13:00:01.258+0000] {logging_mixin.py:154} INFO - [2023-12-17T13:00:01.258+0000] {backfill_job_runner.py:1038} INFO - Reset the following 1 TaskInstances:
+	<TaskInstance: dbrewery_dl_dag.Bronze_container_construiction backfill__2023-12-16T00:00:00+00:00 [None]>
+[2023-12-17T13:00:02.045+0000] {logging_mixin.py:154} INFO - [2023-12-17T13:00:02.045+0000] {backfill_job_runner.py:1038} INFO - Reset the following 1 TaskInstances:
+	<TaskInstance: dbrewery_dl_dag.Bronze_container_construiction backfill__2023-12-17T00:00:00+00:00 [None]>
+[2023-12-17T13:00:03.171+0000] {logging_mixin.py:154} INFO - [2023-12-17T13:00:03.170+0000] {base_executor.py:146} INFO - Adding to queue: ['airflow', 'tasks', 'run', 'dbrewery_dl_dag', 'Bronze_container_construiction', 'backfill__2023-12-16T00:00:00+00:00', '--local', '--pool', 'default_pool', '--subdir', 'DAGS_FOLDER/my_dag.py', '--cfg-path', '/tmp/tmpxa3242s4']
+[2023-12-17T13:00:03.854+0000] {logging_mixin.py:154} INFO - [2023-12-17T13:00:03.854+0000] {base_executor.py:146} INFO - Adding to queue: ['airflow', 'tasks', 'run', 'dbrewery_dl_dag', 'Bronze_container_construiction', 'backfill__2023-12-17T00:00:00+00:00', '--local', '--pool', 'default_pool', '--subdir', 'DAGS_FOLDER/my_dag.py', '--cfg-path', '/tmp/tmpsb71tpgx']
+[2023-12-17T13:00:05.216+0000] {logging_mixin.py:154} INFO - [2023-12-17T13:00:05.216+0000] {sequential_executor.py:74} INFO - Executing command: ['airflow', 'tasks', 'run', 'dbrewery_dl_dag', 'Bronze_container_construiction', 'backfill__2023-12-16T00:00:00+00:00', '--local', '--pool', 'default_pool', '--subdir', 'DAGS_FOLDER/my_dag.py', '--cfg-path', '/tmp/tmpxa3242s4']
+[2023-12-17T13:05:01.794+0000] {logging_mixin.py:154} INFO - [2023-12-17T13:05:01.794+0000] {backfill_job_runner.py:955} WARNING - Backfill terminated by user.
+[2023-12-17T13:05:03.699+0000] {logging_mixin.py:154} INFO - [2023-12-17T13:05:03.699+0000] {sequential_executor.py:74} INFO - Executing command: ['airflow', 'tasks', 'run', 'dbrewery_dl_dag', 'Bronze_container_construiction', 'backfill__2023-12-16T00:00:00+00:00', '--local', '--pool', 'default_pool', '--subdir', 'DAGS_FOLDER/my_dag.py', '--cfg-path', '/tmp/tmpxa3242s4']
+[2023-12-17T13:05:06.972+0000] {processor.py:839} INFO - DAG(s) dict_keys(['dbrewery_dl_dag']) retrieved from /Workspace/Repos/avezumgabriel@gmail.com/brewery_dl/airflow/dags/my_dag.py
+[2023-12-17T13:05:07.168+0000] {logging_mixin.py:154} INFO - [2023-12-17T13:05:07.167+0000] {dag.py:2941} INFO - Sync 1 DAGs
+[2023-12-17T13:05:07.223+0000] {logging_mixin.py:154} INFO - [2023-12-17T13:05:07.222+0000] {dag.py:3722} INFO - Setting next_dagrun for dbrewery_dl_dag to 2023-12-18T00:00:00+00:00, run_after=2023-12-19T00:00:00+00:00
+[2023-12-17T13:05:08.263+0000] {processor.py:182} ERROR - Got an exception! Propagating...
+Traceback (most recent call last):
+  File "/local_disk0/.ephemeral_nfs/envs/pythonEnv-afa57860-56d2-438f-ac9e-792dbe4e1150/lib/python3.10/site-packages/airflow/dag_processing/processor.py", line 178, in _run_file_processor
+    _handle_dag_file_processing()
+  File "/local_disk0/.ephemeral_nfs/envs/pythonEnv-afa57860-56d2-438f-ac9e-792dbe4e1150/lib/python3.10/site-packages/airflow/dag_processing/processor.py", line 164, in _handle_dag_file_processing
+    result_channel.send(result)
+  File "/usr/lib/python3.10/multiprocessing/connection.py", line 206, in send
+    self._send_bytes(_ForkingPickler.dumps(obj))
+  File "/usr/lib/python3.10/multiprocessing/connection.py", line 411, in _send_bytes
+    self._send(header + buf)
+  File "/usr/lib/python3.10/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
