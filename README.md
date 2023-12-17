@@ -18,7 +18,7 @@ The folders are organized in the following way:
 
 - **airflow**: *Folder containing the necessary information to run the airflow* **(Stil not working, the process keeps stoping because of timeout)**
     - **dags**: *Folder with the dag*
-         --**my_dag.py**: *DAG to be executed*
+        - **my_dag.py**: *DAG to be executed*
     - **logs/scheduler**: *Logs to resulted from the dags runs*
   
 - **src**: folder containing all the necessary code to run the process. if run manually put on the first folder, if run airlfow this folder needs to be move to the **airflow/dags** folder.
