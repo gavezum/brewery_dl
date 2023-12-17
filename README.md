@@ -13,6 +13,7 @@ In the **Silver layer**, data is transformed into a columnar storage format, suc
 ## **Gold Layer**
 The **Gold layer** is designed to create an aggregated view that provides insights into the quantity of stores per type and location. This layer adds value by offering a consolidated and organized perspective on the data.
 
+## **Codes organization**
 The folders are organized in the following way:
 
 - **airflow**: *Folder containing the necessary information to run the airflow* **(Stil not working, the process keeps stoping because of timeout)**
